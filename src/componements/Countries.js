@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import Card from "./Card";
 
 const Countries = () => {
@@ -7,13 +8,12 @@ const Countries = () => {
   const [rangeValue, setRangeValue] = useState(36);
   const [selectedRadio, setSelectedRadio] = useState("");
   const radios = ["Africa", "America", "Asia", "Europe", "Oceania"];
-  // Le useEffect se joue lorsque le composant est monté
   useEffect(() => {
     axios
       .get("https://restcountries.com/v3.1/all")
       .then((res) => setData(res.data));
   }, []);
-
+  console.log(data);
   return (
     <div className="countries">
       <ul className="radio-container">
